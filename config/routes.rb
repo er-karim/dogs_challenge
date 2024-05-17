@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   namespace :api, constraints: { format: :json } do
     namespace :v1 do
       resources :dogs, only: [] do
-        post 'img_by_breed', on: :collection
+        get 'img_by_breed', on: :collection
       end
     end
   end

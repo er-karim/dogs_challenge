@@ -10,7 +10,7 @@ describe 'Dogs', type: :request do
       let!(:breed) { 'african' }
 
       it 'returns a success response with a random image' do
-        post '/api/v1/dogs/img_by_breed', params: { breed: }
+        get '/api/v1/dogs/img_by_breed', params: { breed: }
 
         expect(response).to have_http_status(:success)
 
@@ -21,7 +21,7 @@ describe 'Dogs', type: :request do
 
     context 'with an invalid breed' do
       it 'returns an error response' do
-        post '/api/v1/dogs/img_by_breed', params: { breed: 'invalid_breed' }
+        get '/api/v1/dogs/img_by_breed', params: { breed: 'invalid_breed' }
 
         expect(response).to have_http_status(:unprocessable_entity)
         expect(json_response).to eq({ 'status' => 'error', 'message' => 'Invalid breed' })

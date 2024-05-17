@@ -19,11 +19,7 @@ module DogApi
 
     def get(path, params = {})
       response = conn.get(path, params)
-      handle_response(response)
-    end
-
-    def handle_response(response)
-      JSON.parse(response.body)
+      response.body
     end
   end
 end
